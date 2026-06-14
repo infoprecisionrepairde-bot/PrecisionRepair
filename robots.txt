@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /precisionrepair/
+
+Sitemap: https://infoprecisionrepair-png.github.io/precisionrepair/sitemap.xml

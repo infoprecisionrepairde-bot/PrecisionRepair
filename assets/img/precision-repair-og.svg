@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Precision Repair">
+  <rect width="1200" height="630" fill="#071b33"/>
+  <circle cx="990" cy="120" r="220" fill="#0d2a4a"/>
+  <circle cx="1020" cy="130" r="140" fill="#18a999" opacity=".25"/>
+  <rect x="78" y="78" width="118" height="118" rx="24" fill="#fff"/>
+  <path d="M110 160V96h39c15 0 26 10 26 24s-11 24-26 24h-17v16h-22Zm22-35h15c4 0 7-2 7-6s-3-6-7-6h-15v12Z" fill="#071b33"/>
+  <circle cx="178" cy="176" r="13" fill="#18a999"/>
+  <text x="80" y="300" font-family="Inter, Arial, sans-serif" font-size="76" font-weight="800" fill="#ffffff">Precision Repair</text>
+  <text x="82" y="382" font-family="Inter, Arial, sans-serif" font-size="36" font-weight="600" fill="#dfe7f1">Handy-, Laptop- und PC-Reparatur bei Memmingen</text>
+  <rect x="82" y="438" width="330" height="54" rx="8" fill="#18a999"/>
+  <text x="108" y="475" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800" fill="#041620">Kostenlose Diagnose</text>
+  <rect x="436" y="438" width="310" height="54" rx="8" fill="#ffffff"/>
+  <text x="462" y="475" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800" fill="#071b33">Transparente Festpreise</text>
+</svg>
