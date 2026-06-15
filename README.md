@@ -27,7 +27,7 @@ Statische Website für `precisionrepair.de`.
 - Inhaber: Cristian Draghici
 - Adresse: Ellenbogenstr. 7, 87779 Trunkelsberg
 - Telefon: 0174 2716936
-- E-Mail: info.precision.repair@gmail.com
+- E-Mail: info.precision.repair.de@gmail.com
 - Domain: precisionrepair.de
 
 ## Portfolio-Bilder ersetzen
