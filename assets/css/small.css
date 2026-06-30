@@ -1,1 +1,19 @@
-body { background: #020817; }
+body.home-dark{background:#020817;color:#fff}
+.home-dark .dark-header{background:#020817;border-bottom:1px solid #1f2937}
+.home-dark .brand,.home-dark .primary-nav a{color:#fff}
+.premium-hero{min-height:760px;background:#020817;overflow:hidden}
+.premium-hero h1 span{color:#2bf0d0}
+.premium-hero .lead{color:#dbeafe;font-size:1.18rem}
+.hero-benefits{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 0}
+.hero-benefits span{border:1px solid #334155;background:#111827;padding:9px 13px;border-radius:999px;font-weight:900}
+.hero-pc-showcase{border:0;padding:0;border-radius:30px;overflow:hidden;background:#111827;box-shadow:0 34px 100px #000;cursor:pointer;min-height:560px}
+.hero-pc-showcase img{width:100%;height:100%;min-height:560px;object-fit:cover;object-position:center}
+.dark-section{background:#020817;color:#fff;padding:96px 0}
+.center-heading{text-align:center}
+.center-heading p,.home-dark .section-heading p{margin-left:auto;margin-right:auto;color:#cbd5e1}
+.specialty-section{background:#061529}
+.dark-card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.dark-project-card{background:#0f172a;border:1px solid #334155;border-radius:24px;overflow:hidden;box-shadow:0 24px 60px #000;cursor:pointer}
+.dark-project-card img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.dark-project-card div{padding:22px}
+.dark-project-card p{color:#cbd5e1}
