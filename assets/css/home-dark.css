@@ -1,0 +1,235 @@
+body.home-dark {
+  background: #050b14;
+  color: #f7fbff;
+}
+
+.home-dark .site-header,
+.home-dark .dark-header {
+  background: rgba(5, 11, 20, .86);
+  border-bottom: 1px solid rgba(72, 144, 255, .16);
+  backdrop-filter: blur(18px);
+}
+
+.home-dark .brand,
+.home-dark .primary-nav a {
+  color: #eaf3ff;
+}
+
+.home-dark .primary-nav a:hover,
+.home-dark .primary-nav a.active {
+  color: #58a6ff;
+  background: rgba(44, 128, 255, .12);
+}
+
+.home-dark .nav-toggle {
+  background: rgba(255, 255, 255, .08);
+  border-color: rgba(255, 255, 255, .16);
+}
+.home-dark .nav-toggle span:not(.sr-only) { background: #fff; }
+
+.home-dark .premium-hero {
+  min-height: 720px;
+  padding: 94px 0 80px;
+  background:
+    radial-gradient(circle at 75% 15%, rgba(0, 125, 255, .34), transparent 30%),
+    radial-gradient(circle at 92% 82%, rgba(104, 40, 255, .24), transparent 28%),
+    linear-gradient(135deg, #040912 0%, #081525 55%, #0b1830 100%);
+}
+
+.home-dark .premium-hero .hero-grid {
+  grid-template-columns: minmax(0, .92fr) minmax(420px, 1.08fr);
+}
+
+.home-dark .hero-copy h1 {
+  font-size: clamp(2.6rem, 6vw, 5.4rem);
+}
+
+.home-dark .hero-copy h1 span {
+  color: #2f8cff;
+}
+
+.home-dark .lead {
+  color: rgba(255, 255, 255, .78);
+  max-width: 560px;
+}
+
+.home-dark .hero-benefits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.home-dark .hero-benefits span {
+  color: #dcecff;
+  border-right: 1px solid rgba(255, 255, 255, .18);
+  padding-right: 14px;
+  font-weight: 700;
+}
+.home-dark .hero-benefits span:last-child { border-right: 0; }
+
+.home-dark .btn {
+  border-radius: 10px;
+}
+
+.home-dark .btn-primary {
+  background: #1687ff;
+  color: #fff;
+  box-shadow: 0 16px 34px rgba(22, 135, 255, .28);
+}
+.home-dark .btn-primary:hover { background: #3197ff; }
+
+.home-dark .btn-secondary {
+  background: rgba(255, 255, 255, .08);
+  color: #fff;
+  border-color: rgba(255, 255, 255, .28);
+}
+.home-dark .btn-secondary:hover { background: rgba(255, 255, 255, .14); }
+
+.home-dark .hero-pc-showcase {
+  border: 1px solid rgba(104, 170, 255, .28);
+  border-radius: 28px;
+  padding: 0;
+  background: #03070e;
+  overflow: hidden;
+  box-shadow: 0 34px 110px rgba(0, 0, 0, .55), 0 0 60px rgba(22, 135, 255, .18);
+  cursor: pointer;
+}
+
+.home-dark .hero-pc-showcase img {
+  width: 100%;
+  height: min(620px, 66vh);
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.02);
+}
+
+.home-dark .dark-section {
+  background: #050b14;
+  padding: 82px 0;
+}
+
+.home-dark .center-heading {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.home-dark .center-heading p { margin-left: auto; margin-right: auto; }
+.home-dark .section-heading p { color: rgba(255, 255, 255, .66); }
+
+.home-dark .dark-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.home-dark .dark-project-card,
+.home-dark .review-panel,
+.home-dark .value-grid,
+.home-dark .whatsapp-cta {
+  border: 1px solid rgba(104, 170, 255, .18);
+  background: linear-gradient(180deg, rgba(255, 255, 255, .07), rgba(255, 255, 255, .035));
+  box-shadow: 0 24px 70px rgba(0, 0, 0, .28);
+}
+
+.home-dark .dark-project-card {
+  border-radius: 18px;
+  overflow: hidden;
+}
+.home-dark .dark-project-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+.home-dark .dark-project-card div { padding: 24px; }
+.home-dark .dark-project-card p { color: rgba(255, 255, 255, .72); }
+.home-dark .dark-project-card .btn-ghost {
+  color: #fff;
+  border-color: rgba(47, 140, 255, .7);
+  margin-top: 12px;
+}
+
+.home-dark .review-panel {
+  border-radius: 20px;
+  padding: 26px;
+  display: grid;
+  grid-template-columns: 1.1fr repeat(3, 1fr);
+  gap: 18px;
+}
+.home-dark .google-word { font-size: 2rem; font-weight: 900; letter-spacing: -.06em; }
+.home-dark .google-word span:nth-child(1) { color: #4285f4; }
+.home-dark .google-word span:nth-child(2) { color: #ea4335; }
+.home-dark .google-word span:nth-child(3) { color: #fbbc05; }
+.home-dark .google-word span:nth-child(4) { color: #4285f4; }
+.home-dark .google-word span:nth-child(5) { color: #34a853; }
+.home-dark .google-word span:nth-child(6) { color: #ea4335; }
+.home-dark .stars,
+.home-dark .review-card strong { color: #ffc928; font-size: 2rem; letter-spacing: .04em; }
+.home-dark .google-score p,
+.home-dark .review-card p,
+.home-dark .review-card span { color: rgba(255, 255, 255, .72); }
+.home-dark .review-card {
+  border-radius: 16px;
+  padding: 22px;
+  background: rgba(255, 255, 255, .055);
+}
+.home-dark .review-card strong { font-size: 1rem; }
+
+.home-dark .value-section { padding-top: 0; }
+.home-dark .value-grid {
+  border-radius: 18px;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+.home-dark .value-grid strong,
+.home-dark .value-grid span { display: block; }
+.home-dark .value-grid span { color: rgba(255, 255, 255, .68); margin-top: 8px; }
+
+.home-dark .final-whatsapp-section { padding-top: 0; }
+.home-dark .whatsapp-cta {
+  border-radius: 18px;
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  background: linear-gradient(135deg, #0b7cff, #1e4ed8);
+}
+.home-dark .whatsapp-cta p { color: rgba(255, 255, 255, .82); }
+
+.home-dark .dark-footer,
+.home-dark .site-footer {
+  background: #03070e;
+  border-top: 1px solid rgba(72, 144, 255, .16);
+}
+
+.whatsapp-wide {
+  width: auto;
+  height: auto;
+  min-height: 54px;
+  padding: 0 18px;
+  border-radius: 999px;
+  gap: 8px;
+  color: #04120a;
+}
+.whatsapp-wide::before { content: "☎"; font-size: 1.1rem; }
+
+@media (max-width: 900px) {
+  .home-dark .premium-hero .hero-grid,
+  .home-dark .dark-card-grid,
+  .home-dark .review-panel,
+  .home-dark .value-grid {
+    grid-template-columns: 1fr;
+  }
+  .home-dark .hero-pc-showcase img { height: 430px; }
+  .home-dark .primary-nav { background: #07111f; border-color: rgba(255,255,255,.14); }
+  .home-dark .whatsapp-cta { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 560px) {
+  .home-dark .premium-hero { padding: 58px 0; }
+  .home-dark .hero-pc-showcase img { height: 340px; }
+  .home-dark .hero-benefits { gap: 8px; }
+  .home-dark .hero-benefits span { border-right: 0; padding-right: 0; }
+}
