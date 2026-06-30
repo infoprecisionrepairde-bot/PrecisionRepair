@@ -68,10 +68,10 @@
         </article>
 
         <article class="gallery-card project-card" data-category="laptop" data-gallery='["public/images/portfolio/real/laptop-komplett-demontage-01.jpg","public/images/portfolio/real/laptop-mainboard-gehaeuse-01.jpg","public/images/portfolio/real/laptop-mainboard-reparatur-01.jpg","public/images/portfolio/real/laptop-kuehler-luefter-01.jpg","public/images/portfolio/real/windows-neuinstallation-laptop-01.jpg"]'>
-          <button class="project-trigger" type="button" aria-label="Galerie Acer Swift öffnen"><img src="public/images/portfolio/real/laptop-komplett-demontage-01.jpg" alt="Acer Swift zerlegt für Displaytausch und Wartung" width="720" height="540" loading="lazy"></button>
+          <button class="project-trigger" type="button" aria-label="Galerie Acer Aspire E15 öffnen"><img src="public/images/portfolio/real/laptop-komplett-demontage-01.jpg" alt="Acer Aspire E15 zerlegt für Reinigung und Wartung" width="720" height="540" loading="lazy"></button>
           <span>Laptop</span>
-          <h3>Acer Swift – Displaytausch & Neuinstallation</h3>
-          <p>Display ersetzt, Gerät innen und außen gereinigt, Windows neu installiert und Treiber eingerichtet.</p>
+          <h3>Acer Aspire E15 – Reinigung & Wartung</h3>
+          <p>Gerät zerlegt, Mainboard und Kühlsystem ausgebaut, Lüfter und Kühlkörper gereinigt und das Gerät sauber dokumentiert.</p>
         </article>
 
         <article class="gallery-card project-card" data-category="laptop" data-gallery='["public/images/portfolio/real/hdd-datenrettung-01.jpg","public/images/portfolio/real/ram-upgrade-ddr3-01.jpg","public/images/portfolio/real/ram-ssd-upgrade-kit-01.jpg","public/images/portfolio/real/laptop-innenreinigung-anschluesse-01.jpg","public/images/portfolio/real/windows-neuinstallation-laptop-01.jpg"]'>
@@ -95,7 +95,7 @@
           <p>Kühlservice, Kryonaut Extreme, Wärmeleitpads, 32 GB RAM, Samsung 980 Pro, Windows, Treiber, Undervolting und Overclocking.</p>
         </article>
 
-        <article class="gallery-card project-card" data-category="pc" data-gallery='["public/images/portfolio/real/pc-build-komponenten-01.jpg","public/images/portfolio/real/pc-build-komponenten-02.jpg","public/images/portfolio/real/gaming-pc-build-rgb-01.jpg","public/images/portfolio/real/gaming-pc-build-rgb-02.jpg","public/images/portfolio/real/gaming-pc-build-rgb-03.jpg"]'>
+        <article class="gallery-card project-card" data-category="pc" data-gallery='["public/images/portfolio/real/pc-build-komponenten-02.jpg","public/images/portfolio/real/gaming-pc-build-rgb-01.jpg","public/images/portfolio/real/gaming-pc-build-rgb-02.jpg","public/images/portfolio/real/gaming-pc-build-rgb-03.jpg"]'>
           <button class="project-trigger" type="button" aria-label="Galerie RTX 4070 Gaming PC öffnen"><img src="public/images/portfolio/real/gaming-pc-build-rgb-03.jpg" alt="Fertiger RTX 4070 Gaming PC mit RGB Beleuchtung" width="720" height="540" loading="lazy"></button>
           <span>PC-Build</span>
           <h3>RTX 4070 Gaming-PC – Build & Tuning</h3>
@@ -140,64 +140,5 @@
   <footer class="site-footer compact"><div class="container footer-bottom"><span>&copy; Precision Repair</span><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div></footer>
   <a class="whatsapp-float" href="https://wa.me/491742716936?text=Hallo%20Precision%20Repair%2C%20ich%20m%C3%B6chte%20eine%20Reparatur%20anfragen." target="_blank" rel="noopener" aria-label="WhatsApp Nachricht senden">WA</a>
   <script src="assets/js/main.js"></script>
-  <script>
-    const lightbox = document.getElementById('project-lightbox');
-    const lightboxImage = document.getElementById('project-lightbox-image');
-    const lightboxCount = document.getElementById('project-lightbox-count');
-    let currentGallery = [];
-    let currentIndex = 0;
-
-    function showLightboxImage() {
-      if (!currentGallery.length) return;
-      lightboxImage.src = currentGallery[currentIndex];
-      lightboxImage.alt = `Projektbild ${currentIndex + 1} von ${currentGallery.length}`;
-      lightboxCount.textContent = `${currentIndex + 1} / ${currentGallery.length}`;
-    }
-
-    function openGallery(gallery) {
-      currentGallery = gallery;
-      currentIndex = 0;
-      showLightboxImage();
-      lightbox.hidden = false;
-      document.body.classList.add('lightbox-open');
-    }
-
-    function closeGallery() {
-      lightbox.hidden = true;
-      document.body.classList.remove('lightbox-open');
-      lightboxImage.src = '';
-    }
-
-    function nextImage() {
-      currentIndex = (currentIndex + 1) % currentGallery.length;
-      showLightboxImage();
-    }
-
-    function prevImage() {
-      currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
-      showLightboxImage();
-    }
-
-    document.querySelectorAll('.project-card').forEach((card) => {
-      const trigger = card.querySelector('.project-trigger');
-      trigger.addEventListener('click', () => {
-        try {
-          openGallery(JSON.parse(card.dataset.gallery));
-        } catch (error) {
-          console.error('Galerie konnte nicht geöffnet werden', error);
-        }
-      });
-    });
-
-    document.querySelectorAll('[data-close-lightbox]').forEach((element) => element.addEventListener('click', closeGallery));
-    document.querySelector('[data-lightbox-next]').addEventListener('click', nextImage);
-    document.querySelector('[data-lightbox-prev]').addEventListener('click', prevImage);
-    document.addEventListener('keydown', (event) => {
-      if (lightbox.hidden) return;
-      if (event.key === 'Escape') closeGallery();
-      if (event.key === 'ArrowRight') nextImage();
-      if (event.key === 'ArrowLeft') prevImage();
-    });
-  </script>
 </body>
 </html>
