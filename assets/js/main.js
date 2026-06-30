@@ -24,20 +24,21 @@ if (filterButtons.length && galleryCards.length) {
   });
 }
 
-// Styling for portfolio project buttons and the image lightbox.
-// Injected here so the live GitHub Pages version gets the gallery design even if the CSS file is cached.
 const lightboxStyleId = "precision-repair-lightbox-style";
 if (!document.getElementById(lightboxStyleId)) {
   const style = document.createElement("style");
   style.id = lightboxStyleId;
   style.textContent = `
+    .project-trigger, .project-trigger-text {
+      cursor: pointer;
+    }
+
     .project-trigger {
       display: block;
       width: 100%;
       padding: 0;
       border: 0;
       background: #071b33;
-      cursor: pointer;
       text-align: left;
     }
 
@@ -45,20 +46,18 @@ if (!document.getElementById(lightboxStyleId)) {
       transition: transform .22s ease, opacity .22s ease;
     }
 
-    .project-trigger:hover img,
+    .project-card:hover .project-trigger img,
     .project-trigger:focus-visible img {
-      transform: scale(1.03);
-      opacity: .92;
+      transform: scale(1.035);
+      opacity: .94;
     }
 
-    .project-lightbox[hidden] {
-      display: none !important;
-    }
+    .project-lightbox[hidden] { display: none !important; }
 
     .project-lightbox {
       position: fixed;
       inset: 0;
-      z-index: 999;
+      z-index: 9999;
       display: grid;
       place-items: center;
       padding: 22px;
@@ -67,21 +66,21 @@ if (!document.getElementById(lightboxStyleId)) {
     .project-lightbox-backdrop {
       position: absolute;
       inset: 0;
-      background: rgba(3, 12, 24, .86);
-      backdrop-filter: blur(8px);
+      background: rgba(3, 8, 18, .9);
+      backdrop-filter: blur(10px);
     }
 
     .project-lightbox-dialog {
       position: relative;
       z-index: 1;
-      width: min(1100px, 100%);
+      width: min(1180px, 100%);
       max-height: calc(100vh - 44px);
       display: grid;
       place-items: center;
-      background: #071b33;
-      border: 1px solid rgba(255, 255, 255, .16);
-      border-radius: 18px;
-      box-shadow: 0 24px 80px rgba(0, 0, 0, .45);
+      background: linear-gradient(145deg, #071323, #0b223c);
+      border: 1px solid rgba(255, 255, 255, .18);
+      border-radius: 22px;
+      box-shadow: 0 30px 95px rgba(0, 0, 0, .55);
       padding: 18px;
     }
 
@@ -89,22 +88,22 @@ if (!document.getElementById(lightboxStyleId)) {
       max-width: 100%;
       max-height: calc(100vh - 150px);
       object-fit: contain;
-      border-radius: 12px;
-      background: #0d2a4a;
+      border-radius: 14px;
+      background: #06101f;
     }
 
     .project-lightbox-close,
     .project-lightbox-nav {
       position: absolute;
       z-index: 2;
-      border: 0;
+      border: 1px solid rgba(255, 255, 255, .24);
       border-radius: 999px;
-      background: rgba(255, 255, 255, .92);
+      background: rgba(255, 255, 255, .94);
       color: #071b33;
       font: inherit;
       font-weight: 900;
       cursor: pointer;
-      box-shadow: 0 10px 28px rgba(0, 0, 0, .22);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, .28);
     }
 
     .project-lightbox-close {
@@ -119,9 +118,9 @@ if (!document.getElementById(lightboxStyleId)) {
     .project-lightbox-nav {
       top: 50%;
       transform: translateY(-50%);
-      width: 48px;
-      height: 48px;
-      font-size: 38px;
+      width: 50px;
+      height: 50px;
+      font-size: 40px;
       line-height: 1;
     }
 
@@ -130,13 +129,12 @@ if (!document.getElementById(lightboxStyleId)) {
 
     .project-lightbox-count {
       margin: 14px 0 0;
-      color: rgba(255, 255, 255, .86);
+      color: rgba(255, 255, 255, .88);
       font-weight: 800;
+      letter-spacing: .03em;
     }
 
-    .lightbox-open {
-      overflow: hidden;
-    }
+    .lightbox-open { overflow: hidden; }
 
     @media (max-width: 700px) {
       .project-lightbox { padding: 10px; }
@@ -148,4 +146,76 @@ if (!document.getElementById(lightboxStyleId)) {
     }
   `;
   document.head.appendChild(style);
+}
+
+const lightbox = document.getElementById("project-lightbox");
+const lightboxImage = document.getElementById("project-lightbox-image");
+const lightboxCount = document.getElementById("project-lightbox-count");
+let currentGallery = [];
+let currentIndex = 0;
+
+function showLightboxImage() {
+  if (!lightbox || !lightboxImage || !lightboxCount || !currentGallery.length) return;
+  lightboxImage.src = currentGallery[currentIndex];
+  lightboxImage.alt = `Projektbild ${currentIndex + 1} von ${currentGallery.length}`;
+  lightboxCount.textContent = `${currentIndex + 1} / ${currentGallery.length}`;
+}
+
+function openGalleryFromCard(card) {
+  if (!lightbox || !card || !card.dataset.gallery) return;
+  try {
+    const gallery = JSON.parse(card.dataset.gallery);
+    if (!Array.isArray(gallery) || gallery.length === 0) return;
+    currentGallery = gallery;
+    currentIndex = 0;
+    showLightboxImage();
+    lightbox.hidden = false;
+    document.body.classList.add("lightbox-open");
+  } catch (error) {
+    console.error("Galerie konnte nicht geöffnet werden", error);
+  }
+}
+
+function closeGallery() {
+  if (!lightbox || !lightboxImage) return;
+  lightbox.hidden = true;
+  document.body.classList.remove("lightbox-open");
+  lightboxImage.src = "";
+}
+
+function nextImage() {
+  if (!currentGallery.length) return;
+  currentIndex = (currentIndex + 1) % currentGallery.length;
+  showLightboxImage();
+}
+
+function prevImage() {
+  if (!currentGallery.length) return;
+  currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+  showLightboxImage();
+}
+
+if (lightbox) {
+  document.querySelectorAll(".project-card[data-gallery]").forEach((card) => {
+    if (card.dataset.lightboxBound === "true") return;
+    card.dataset.lightboxBound = "true";
+    const triggers = card.querySelectorAll(".project-trigger, .project-trigger-text, .project-card-link");
+    const elements = triggers.length ? triggers : [card];
+    elements.forEach((trigger) => {
+      trigger.addEventListener("click", (event) => {
+        event.preventDefault();
+        openGalleryFromCard(card);
+      });
+    });
+  });
+
+  document.querySelectorAll("[data-close-lightbox]").forEach((element) => element.addEventListener("click", closeGallery));
+  document.querySelector("[data-lightbox-next]")?.addEventListener("click", nextImage);
+  document.querySelector("[data-lightbox-prev]")?.addEventListener("click", prevImage);
+  document.addEventListener("keydown", (event) => {
+    if (lightbox.hidden) return;
+    if (event.key === "Escape") closeGallery();
+    if (event.key === "ArrowRight") nextImage();
+    if (event.key === "ArrowLeft") prevImage();
+  });
 }
