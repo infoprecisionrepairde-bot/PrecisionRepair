@@ -55,12 +55,13 @@ if(filterButtons.length&&galleryCards.length){
   const style=document.createElement('style');
   style.id='pr-global-premium-fixes';
   style.textContent=`
-    .brand{display:inline-flex!important;align-items:center!important;gap:.72rem!important;text-decoration:none!important}
-    .brand img{width:52px!important;height:52px!important;object-fit:contain!important;border-radius:10px!important}
-    .brand span{display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:center!important;gap:0!important;line-height:.88!important;font-weight:950!important;letter-spacing:.035em!important;text-transform:uppercase!important;color:#fff!important;font-size:1.04rem!important}
-    .brand span strong{display:block!important;color:#fff!important;font:inherit!important;line-height:.9!important}
-    .brand span em{display:block!important;color:#2d93ff!important;font:inherit!important;font-style:normal!important;line-height:.9!important;margin-top:.12rem!important}
-    @media(max-width:760px){.brand img{width:56px!important;height:56px!important}.brand span{font-size:1.16rem!important}}
+    .brand,body.dream-home .brand,body:not(.dream-home) .brand{display:inline-flex!important;align-items:center!important;gap:.72rem!important;text-decoration:none!important}
+    .brand img,body.dream-home .brand img,body:not(.dream-home) .brand img{width:52px!important;height:52px!important;min-width:52px!important;object-fit:contain!important;border-radius:10px!important}
+    .brand span,body.dream-home .brand span,body:not(.dream-home) .brand span{display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:center!important;gap:0!important;line-height:.88!important;font-weight:950!important;letter-spacing:.035em!important;text-transform:uppercase!important;color:#fff!important;font-size:1.04rem!important}
+    .brand span strong,.brand span em{display:block!important;font:inherit!important;line-height:.9!important}
+    .brand span strong{color:#fff!important}
+    .brand span em{color:#2d93ff!important;font-style:normal!important;margin-top:.12rem!important}
+    @media(max-width:760px){.brand img,body.dream-home .brand img,body:not(.dream-home) .brand img{width:56px!important;height:56px!important;min-width:56px!important}.brand span,body.dream-home .brand span,body:not(.dream-home) .brand span{font-size:1.16rem!important}}
 
     .whatsapp-float{font-size:0!important;color:#fff!important;background:#25d366!important;box-shadow:0 18px 44px rgba(37,211,102,.38)!important}
     .whatsapp-float svg{display:block!important;width:34px!important;height:34px!important;color:#fff!important}
