@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Kontakt | Precision Repair Trunkelsberg bei Memmingen</title>
   <meta name="description" content="Precision Repair kontaktieren: Telefon, WhatsApp oder Kontaktformular für Handy-Reparatur Memmingen, Laptop-Reparatur Memmingen und PC-Reparatur Unterallgäu.">
-  <link rel="canonical" href="https://infoprecisionrepair-png.github.io/precisionrepair/kontakt.html">
+  <link rel="canonical" href="https://www.precisionrepair.de/kontakt.html">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/css/styles.css?v=20260702-4">
 </head>
@@ -29,21 +29,28 @@
     </section>
     <section class="section">
       <div class="container contact-grid">
-        <form class="contact-form" action="mailto:info.precision.repair.de@gmail.com" method="post" enctype="text/plain">
+        <form class="contact-form" data-contact-form>
           <label for="name">Name</label>
-          <input id="name" name="Name" type="text" autocomplete="name" required>
+          <input id="name" name="name" type="text" autocomplete="name" required>
           <label for="email">E-Mail</label>
-          <input id="email" name="E-Mail" type="email" autocomplete="email" required>
+          <input id="email" name="email" type="email" autocomplete="email" required>
           <label for="phone">Telefon</label>
-          <input id="phone" name="Telefon" type="tel" autocomplete="tel">
+          <input id="phone" name="phone" type="tel" autocomplete="tel">
           <label for="device">Gerät und Modell</label>
-          <input id="device" name="geraet" type="text" placeholder="z. B. iPhone, Samsung, Lenovo, Gaming-PC">
+          <input id="device" name="device" type="text" placeholder="z. B. iPhone, Samsung, Lenovo, Gaming-PC">
           <label for="message">Fehlerbeschreibung</label>
-          <textarea id="message" name="Nachricht" rows="6" required></textarea>
+          <textarea id="message" name="message" rows="6" required></textarea>
+          <div style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
+            <label for="website">Website</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <input type="hidden" name="form_name" value="Precision Repair Kontaktformular">
+          <input type="hidden" name="source" value="precisionrepair.de">
           <label class="checkbox">
-            <input type="checkbox" required>
+            <input name="privacy_accepted" value="ja" type="checkbox" required>
             <span>Ich habe die <a href="datenschutz.html">Datenschutzhinweise</a> gelesen und stimme der Verarbeitung meiner Angaben zur Kontaktaufnahme zu.</span>
           </label>
+          <p data-form-status style="min-height:1.5em;margin:0 0 14px;color:rgba(245,248,255,.78);"></p>
           <button class="btn btn-primary" type="submit">Anfrage senden</button>
         </form>
         <aside class="contact-panel">
@@ -60,8 +67,40 @@
       </div>
     </section>
   </main>
-  <footer class="site-footer compact"><div class="container footer-bottom"><span>© Precision Repair</span><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div></footer>
+  <footer class="site-footer compact"><div class="container footer-bottom"><span>© Precision Repair</span><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="agb.html">AGB</a></div></footer>
   <a class="whatsapp-float" href="https://wa.me/491742716936?text=Hallo%20Precision%20Repair%2C%20ich%20m%C3%B6chte%20eine%20Reparatur%20anfragen." target="_blank" rel="noopener" aria-label="WhatsApp Nachricht senden">WA</a>
-  <script src="assets/js/main.js?v=20260702-4"></script>
+  <script src="assets/js/main.js?v=20260705-2"></script>
+  <script>
+    (function(){
+      const form = document.querySelector('[data-contact-form]');
+      if (!form) return;
+      const status = form.querySelector('[data-form-status]');
+      const submitButton = form.querySelector('button[type="submit"]');
+      const webhookUrl = 'https://hook.eu1.make.com/y4p5yyb9vjkigglqne6lukpcu4l1vkks';
+      form.addEventListener('submit', async function(event){
+        event.preventDefault();
+        if (form.website && form.website.value) return;
+        if (status) status.textContent = 'Ihre Anfrage wird gesendet ...';
+        if (submitButton) { submitButton.disabled = true; submitButton.textContent = 'Wird gesendet ...'; }
+        const data = new FormData(form);
+        data.set('submitted_at', new Date().toISOString());
+        data.set('page_url', window.location.href);
+        const body = new URLSearchParams();
+        data.forEach(function(value, key){ body.append(key, value); });
+        try {
+          await fetch(webhookUrl, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: body.toString()
+          });
+          window.location.href = 'danke.html';
+        } catch (error) {
+          if (status) status.textContent = 'Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie direkt per WhatsApp.';
+          if (submitButton) { submitButton.disabled = false; submitButton.textContent = 'Anfrage senden'; }
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
