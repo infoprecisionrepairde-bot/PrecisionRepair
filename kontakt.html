@@ -29,7 +29,7 @@
     </section>
     <section class="section">
       <div class="container contact-grid">
-        <form class="contact-form" data-contact-form action="https://hook.eu1.make.com/y4p5yyb9vjkigglqne6lukpcu4l1vkks" method="post" accept-charset="UTF-8">
+        <form class="contact-form" action="https://hook.eu1.make.com/y4p5yyb9vjkigglqne6lukpcu4l1vkks" method="post" enctype="application/x-www-form-urlencoded" accept-charset="UTF-8">
           <label for="name">Name</label>
           <input id="name" name="name" type="text" autocomplete="name" required>
           <label for="email">E-Mail</label>
@@ -46,11 +46,12 @@
           </div>
           <input type="hidden" name="form_name" value="Precision Repair Kontaktformular">
           <input type="hidden" name="source" value="precisionrepair.de">
+          <input type="hidden" name="page_url" value="https://www.precisionrepair.de/kontakt.html">
           <label class="checkbox">
             <input name="privacy_accepted" value="ja" type="checkbox" required>
             <span>Ich habe die <a href="datenschutz.html">Datenschutzhinweise</a> gelesen und stimme der Verarbeitung meiner Angaben zur Kontaktaufnahme zu.</span>
           </label>
-          <p data-form-status style="min-height:1.5em;margin:0 0 14px;color:rgba(245,248,255,.78);"></p>
+          <p style="min-height:1.5em;margin:0 0 14px;color:rgba(245,248,255,.78);">Nach dem Absenden erscheint eine kurze Bestätigung.</p>
           <button class="btn btn-primary" type="submit">Anfrage senden</button>
         </form>
         <aside class="contact-panel">
@@ -69,43 +70,6 @@
   </main>
   <footer class="site-footer compact"><div class="container footer-bottom"><span>© Precision Repair</span><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="agb.html">AGB</a></div></footer>
   <a class="whatsapp-float" href="https://wa.me/491742716936?text=Hallo%20Precision%20Repair%2C%20ich%20m%C3%B6chte%20eine%20Reparatur%20anfragen." target="_blank" rel="noopener" aria-label="WhatsApp Nachricht senden">WA</a>
-  <script src="assets/js/main.js?v=20260705-2"></script>
-  <script>
-    (function(){
-      if (window.location.protocol === 'http:' && window.location.hostname !== 'localhost') {
-        window.location.replace('https://' + window.location.host + window.location.pathname + window.location.search + window.location.hash);
-        return;
-      }
-      const form = document.querySelector('[data-contact-form]');
-      if (!form) return;
-      const status = form.querySelector('[data-form-status]');
-      const submitButton = form.querySelector('button[type="submit"]');
-      const webhookUrl = form.getAttribute('action');
-      form.addEventListener('submit', async function(event){
-        event.preventDefault();
-        event.stopPropagation();
-        if (form.website && form.website.value) return;
-        if (status) status.textContent = 'Ihre Anfrage wird gesendet ...';
-        if (submitButton) { submitButton.disabled = true; submitButton.textContent = 'Wird gesendet ...'; }
-        const data = new FormData(form);
-        data.set('submitted_at', new Date().toISOString());
-        data.set('page_url', window.location.href);
-        const body = new URLSearchParams();
-        data.forEach(function(value, key){ body.append(key, value); });
-        try {
-          await fetch(webhookUrl, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
-            body: body.toString()
-          });
-          window.location.assign('danke.html');
-        } catch (error) {
-          if (status) status.textContent = 'Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie direkt per WhatsApp.';
-          if (submitButton) { submitButton.disabled = false; submitButton.textContent = 'Anfrage senden'; }
-        }
-      }, true);
-    })();
-  </script>
+  <script src="assets/js/main.js?v=20260705-3"></script>
 </body>
 </html>
