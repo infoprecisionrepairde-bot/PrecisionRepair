@@ -29,7 +29,7 @@
     </section>
     <section class="section">
       <div class="container contact-grid">
-        <form class="contact-form" data-contact-form>
+        <form class="contact-form" data-contact-form action="https://hook.eu1.make.com/y4p5yyb9vjkigglqne6lukpcu4l1vkks" method="post" accept-charset="UTF-8">
           <label for="name">Name</label>
           <input id="name" name="name" type="text" autocomplete="name" required>
           <label for="email">E-Mail</label>
@@ -72,13 +72,18 @@
   <script src="assets/js/main.js?v=20260705-2"></script>
   <script>
     (function(){
+      if (window.location.protocol === 'http:' && window.location.hostname !== 'localhost') {
+        window.location.replace('https://' + window.location.host + window.location.pathname + window.location.search + window.location.hash);
+        return;
+      }
       const form = document.querySelector('[data-contact-form]');
       if (!form) return;
       const status = form.querySelector('[data-form-status]');
       const submitButton = form.querySelector('button[type="submit"]');
-      const webhookUrl = 'https://hook.eu1.make.com/y4p5yyb9vjkigglqne6lukpcu4l1vkks';
+      const webhookUrl = form.getAttribute('action');
       form.addEventListener('submit', async function(event){
         event.preventDefault();
+        event.stopPropagation();
         if (form.website && form.website.value) return;
         if (status) status.textContent = 'Ihre Anfrage wird gesendet ...';
         if (submitButton) { submitButton.disabled = true; submitButton.textContent = 'Wird gesendet ...'; }
@@ -91,15 +96,15 @@
           await fetch(webhookUrl, {
             method: 'POST',
             mode: 'no-cors',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
             body: body.toString()
           });
-          window.location.href = 'danke.html';
+          window.location.assign('danke.html');
         } catch (error) {
           if (status) status.textContent = 'Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie direkt per WhatsApp.';
           if (submitButton) { submitButton.disabled = false; submitButton.textContent = 'Anfrage senden'; }
         }
-      });
+      }, true);
     })();
   </script>
 </body>
