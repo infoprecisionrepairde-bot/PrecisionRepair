@@ -37,4 +37,56 @@
     @media(max-width:560px){body.dream-home .premium-hero{padding:38px 0 54px!important}body.dream-home .premium-hero-grid{width:calc(100vw - 28px)!important;max-width:calc(100vw - 28px)!important;gap:30px!important}body.dream-home .premium-hero-copy h1{font-size:clamp(2.45rem,12vw,3.3rem)!important;letter-spacing:-.055em!important}body.dream-home .premium-trust span{white-space:normal!important;font-size:.93rem!important}body.dream-home .premium-actions{display:grid!important;grid-template-columns:1fr!important;gap:12px!important}body.dream-home .premium-btn{width:100%!important}body.dream-home .hero-visual{height:240px!important;border-radius:14px!important}body.dream-home .hero-visual img{transform:scale(1.18)!important}body.dream-home .specialties-section .section-title,body.dream-home .specialties-section .specialties-grid,body.dream-home .google-reviews-section .container{width:calc(100vw - 28px)!important;max-width:calc(100vw - 28px)!important}body.dream-home .specialties-section .section-title h2{font-size:clamp(1.95rem,9vw,2.45rem)!important}}
   `;
   document.head.appendChild(s);
+
+  const track=document.querySelector('.pr-reviews-track');
+  if(!track||track.dataset.reviewsExpanded==='true') return;
+
+  track.dataset.reviewsExpanded='true';
+  track.querySelectorAll('[aria-hidden="true"]').forEach(card=>card.remove());
+
+  const reviews=[
+    {initials:'M',name:'Marcin Kroll',text:'Top Service! Sehr zu empfehlen!',color:'#6542c7'},
+    {initials:'D',name:'Dieter Kuechle',text:'Akku wurde sehr schnell und sauber erneuert.',color:'#8f2bbd'},
+    {initials:'P',name:'Patrik Hoch',text:'Sehr freundlich. Professionelle Beratung und ehrliche Antwort. Definitiv Top. Kann man nur weiterempfehlen.b',color:'#347d24'}
+  ];
+
+  const createReviewCard=({initials,name,text,color},hidden=false)=>{
+    const article=document.createElement('article');
+    article.className='pr-review-card';
+    if(hidden) article.setAttribute('aria-hidden','true');
+
+    const header=document.createElement('div');
+    header.style.cssText='display:flex;align-items:center;gap:14px;margin-bottom:14px;';
+
+    const avatar=document.createElement('span');
+    avatar.style.cssText=`width:46px;height:46px;border-radius:999px;background:${color};color:#fff;display:grid;place-items:center;font-weight:900;font-size:1.15rem;`;
+    avatar.textContent=initials;
+
+    const meta=document.createElement('div');
+    const reviewer=document.createElement('strong');
+    reviewer.style.cssText='display:block;color:#fff;';
+    reviewer.textContent=name;
+    const stars=document.createElement('span');
+    stars.style.cssText='display:block;color:#ffd75a;letter-spacing:.08em;font-size:1rem;';
+    stars.textContent='★★★★★';
+    meta.append(reviewer,stars);
+    header.append(avatar,meta);
+
+    const paragraph=document.createElement('p');
+    paragraph.style.cssText='color:rgba(245,248,255,.86);line-height:1.7;margin:0;';
+    paragraph.textContent=text;
+    article.append(header,paragraph);
+    return article;
+  };
+
+  reviews.forEach(review=>track.appendChild(createReviewCard(review)));
+  [...track.children].forEach(card=>{
+    const clone=card.cloneNode(true);
+    clone.setAttribute('aria-hidden','true');
+    track.appendChild(clone);
+  });
+
+  track.style.animationDuration='141s';
+  const reviewCount=[...document.querySelectorAll('.google-reviews-section span')].find(el=>el.textContent.trim()==='6 Rezensionen');
+  if(reviewCount) reviewCount.textContent='9 Rezensionen';
 })();
