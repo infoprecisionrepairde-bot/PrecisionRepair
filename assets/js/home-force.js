@@ -49,7 +49,8 @@
     {initials:'D',name:'Dieter Kuechle',text:'Akku wurde sehr schnell und sauber erneuert.',color:'#8f2bbd'},
     {initials:'P',name:'Patrik Hoch',text:'Sehr freundlich. Professionelle Beratung und ehrliche Antwort. Definitiv Top. Kann man nur weiterempfehlen.b',color:'#347d24'},
     {initials:'MG',name:'M G',text:'Mein Laptop hatte einen Displayschaden und wurde sehr schnell repariert. Zusätzlich wurden alle notwendigen Updates durchgeführt. Das alles zu einem sehr fairen und realistischen Preis. Der Service war zuverlässig, professionell und vertrauenswürdig. Ich bin sehr zufrieden und kann den Service uneingeschränkt weiterempfehlen!',color:'#f26a00'},
-    {initials:'B',name:'Bettina Brugger',text:'Sehr freundlicher, unkomplizierter, schneller und kompetenter Anbieter. Ich war mit meiner Reparatur rundum zufrieden. Gerne wieder.',color:'#ff5a1f'}
+    {initials:'B',name:'Bettina Brugger',text:'Sehr freundlicher, unkomplizierter, schneller und kompetenter Anbieter. Ich war mit meiner Reparatur rundum zufrieden. Gerne wieder.',color:'#ff5a1f'},
+    {initials:'T',name:'Thomas Yaw',text:'Excellent job, your time and everything was on point.',color:'#b044c7'}
   ];
 
   const createReviewCard=({initials,name,text,color},hidden=false)=>{
@@ -88,7 +89,7 @@
     track.appendChild(clone);
   });
 
-  track.style.animationDuration='173s';
+  track.style.animationDuration='188s';
   const reviewCount=[...document.querySelectorAll('.google-reviews-section span')].find(el=>el.textContent.trim()==='6 Rezensionen');
-  if(reviewCount) reviewCount.textContent='11 Rezensionen';
+  if(reviewCount) reviewCount.textContent='12 Rezensionen';
 })();
