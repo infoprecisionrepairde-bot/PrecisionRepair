@@ -5,3 +5,5 @@ Statische Website für `precisionrepair.de`.
 ## Status
 
 Startseite wurde auf echtes Projektmaterial und Premium-Dark-Layout umgestellt.
+
+Deployment retry 2026-08-29.
