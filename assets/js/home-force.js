@@ -51,7 +51,8 @@
     {initials:'MG',name:'M G',text:'Mein Laptop hatte einen Displayschaden und wurde sehr schnell repariert. Zusätzlich wurden alle notwendigen Updates durchgeführt. Das alles zu einem sehr fairen und realistischen Preis. Der Service war zuverlässig, professionell und vertrauenswürdig. Ich bin sehr zufrieden und kann den Service uneingeschränkt weiterempfehlen!',color:'#f26a00'},
     {initials:'B',name:'Bettina Brugger',text:'Sehr freundlicher, unkomplizierter, schneller und kompetenter Anbieter. Ich war mit meiner Reparatur rundum zufrieden. Gerne wieder.',color:'#ff5a1f'},
     {initials:'T',name:'Thomas Yaw',text:'Excellent job, your time and everything was on point.',color:'#b044c7'},
-    {initials:'A',name:'Ari Muhammed Ali',text:'Habe meinen PC hier professionell reinigen lassen und bin sehr zufrieden. Die Reinigung wurde wirklich gründlich gemacht und man merkt, dass sich hier Mühe gegeben wird.\n\nAlles war transparent, keine versteckten Kosten und der Preis war auch sehr fair und günstig. Die Kommunikation war ebenfalls super.\n\nWürde ich auf jeden Fall weiterempfehlen und beim nächsten Mal wieder hierherkommen',color:'#0877bd'}
+    {initials:'A',name:'Ari Muhammed Ali',text:'Habe meinen PC hier professionell reinigen lassen und bin sehr zufrieden. Die Reinigung wurde wirklich gründlich gemacht und man merkt, dass sich hier Mühe gegeben wird.\n\nAlles war transparent, keine versteckten Kosten und der Preis war auch sehr fair und günstig. Die Kommunikation war ebenfalls super.\n\nWürde ich auf jeden Fall weiterempfehlen und beim nächsten Mal wieder hierherkommen',color:'#0877bd'},
+    {initials:'A',name:'Adriana Bejenariu',text:'Sehr zufrieden',color:'#5b6fc7'}
   ];
 
   const createReviewCard=({initials,name,text,color},hidden=false)=>{
@@ -92,5 +93,5 @@
 
   track.style.animationDuration='188s';
   const reviewCount=[...document.querySelectorAll('.google-reviews-section span')].find(el=>el.textContent.trim()==='6 Rezensionen');
-  if(reviewCount) reviewCount.textContent='13 Rezensionen';
+  if(reviewCount) reviewCount.textContent='14 Rezensionen';
 })();
