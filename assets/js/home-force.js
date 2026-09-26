@@ -53,7 +53,8 @@
     {initials:'T',name:'Thomas Yaw',text:'Excellent job, your time and everything was on point.',color:'#b044c7'},
     {initials:'A',name:'Ari Muhammed Ali',text:'Habe meinen PC hier professionell reinigen lassen und bin sehr zufrieden. Die Reinigung wurde wirklich gründlich gemacht und man merkt, dass sich hier Mühe gegeben wird.\n\nAlles war transparent, keine versteckten Kosten und der Preis war auch sehr fair und günstig. Die Kommunikation war ebenfalls super.\n\nWürde ich auf jeden Fall weiterempfehlen und beim nächsten Mal wieder hierherkommen',color:'#0877bd'},
     {initials:'A',name:'Adriana Bejenariu',text:'Sehr zufrieden',color:'#5b6fc7'},
-    {initials:'F',name:'Fiona Bolkart',text:'Handykamera wurde schnell repariert. Super freundlicher Service! 👍🏻',color:'#4b8a6f'}
+    {initials:'F',name:'Fiona Bolkart',text:'Handykamera wurde schnell repariert. Super freundlicher Service! 👍🏻',color:'#4b8a6f'},
+    {initials:'J',name:'Jürgen Joachim H.',text:'Ich kann Precision Repair sehr empfehlen, mir wurde bei einem Laptop Problem super geholfen. Der Kontakt mit dem Service war mehr als Gut. Beim Hersteller Support des Laptops wurde mir gesagt „Entsorgen und einen neuen Kaufen.“ Bei Precision Repair lief er innerhalb zwei Stunden wieder. Zu einem sehr fairen Preis. Danke nochmals, und gerne wieder.',color:'#8e24aa'}
   ];
 
   const createReviewCard=({initials,name,text,color},hidden=false)=>{
@@ -94,5 +95,5 @@
 
   track.style.animationDuration='188s';
   const reviewCount=[...document.querySelectorAll('.google-reviews-section span')].find(el=>el.textContent.trim()==='6 Rezensionen');
-  if(reviewCount) reviewCount.textContent='15 Rezensionen';
+  if(reviewCount) reviewCount.textContent='16 Rezensionen';
 })();
